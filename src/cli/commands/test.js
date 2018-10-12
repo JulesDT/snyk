@@ -107,6 +107,9 @@ function test() {
 
         // backwards compat - strip array IFF only one result
         var dataToSend = results.length === 1 ? results[0] : results;
+        if("project-name" in options) {
+          dataToSend["projectName"] = options["project-name"]
+        }
         var json = JSON.stringify(dataToSend, '', 2);
 
         if (results.every(function (res) {
